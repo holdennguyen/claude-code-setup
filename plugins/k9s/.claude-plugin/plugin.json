@@ -1,0 +1,59 @@
+{
+  "name": "k9s",
+  "version": "0.2.0",
+  "description": "A live, interactive k9s terminal in a pane (k9s runs under a private tmux server, so kube auth and context come from the shell that launched Claude Code), plus two tools so the model can read the k9s screen and send it keys. While k9s runs, Bash calls that invoke kubectl are refused and the model is pointed at those tools; kubectl works as usual otherwise. One server per Claude Code process, a watchdog and a start-up sweep keep orphans from surviving, and an idle stop keeps k9s from polling the cluster unseen.",
+  "types": "./types/index.d.ts",
+  "author": {
+    "name": "Holden Nguyen",
+    "email": "holdennguyen6174@gmail.com",
+    "url": "https://github.com/holdennguyen"
+  },
+  "homepage": "https://github.com/holdennguyen/claude-code-setup/tree/main/plugins/k9s",
+  "repository": "https://github.com/holdennguyen/claude-code-setup",
+  "license": "MIT",
+  "keywords": [
+    "k9s",
+    "kubernetes",
+    "tmux",
+    "pane",
+    "mod"
+  ],
+  "userConfig": {
+    "command": {
+      "type": "string",
+      "title": "Command",
+      "description": "The program the pane runs (k9s, or a path to it).",
+      "default": "k9s"
+    },
+    "args": {
+      "type": "string",
+      "title": "Arguments",
+      "description": "Extra arguments for the command, as typed in a shell (for example: --context prod -n kube-system).",
+      "default": ""
+    },
+    "tmux": {
+      "type": "string",
+      "title": "tmux binary",
+      "description": "The tmux executable used to host the program.",
+      "default": "tmux"
+    },
+    "pollMs": {
+      "type": "number",
+      "title": "Refresh interval (ms)",
+      "description": "How often the pane re-reads the k9s screen.",
+      "default": 250
+    },
+    "autoOpen": {
+      "type": "boolean",
+      "title": "Open at session start",
+      "description": "Start k9s and open the pane as soon as the session starts.",
+      "default": false
+    },
+    "idleMinutes": {
+      "type": "number",
+      "title": "Idle stop (minutes)",
+      "description": "Stop k9s after this many minutes with the pane closed and no tool or key activity; 0 never stops it.",
+      "default": 15
+    }
+  }
+}

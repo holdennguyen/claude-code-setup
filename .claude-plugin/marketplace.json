@@ -1,0 +1,19 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "claude-code-setup",
+  "description": "Holden's Claude Code setup: mods and plugins, installable from this marketplace.",
+  "owner": {
+    "name": "Holden Nguyen",
+    "email": "holdennguyen6174@gmail.com",
+    "url": "https://github.com/holdennguyen"
+  },
+  "plugins": [
+    {
+      "name": "k9s",
+      "source": "./plugins/k9s",
+      "description": "A live, interactive k9s terminal in a Claude Code pane, two tools so the model can read and drive it, and a guard that routes the model to those tools instead of kubectl while the pane is open. Needs tmux and k9s on PATH.",
+      "category": "development",
+      "tags": ["mods", "k9s", "kubernetes", "tmux", "pane"]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+# Claude Code writes a plugin's type declarations into .claude-plugin/types/ on every load.
+**/.claude-plugin/types/
+node_modules/
+.DS_Store
+# Per-folder Claude Code state (headroom wrapper lock, local settings)
+.claude/
